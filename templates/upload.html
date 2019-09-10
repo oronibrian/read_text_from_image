@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="Styles/MainStyle.css" rel="stylesheet" type="text/css"/>
+        <title></title>
+    </head>
+    <body>
+      
+        <div class="container register">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Image Upload</a>
+                        </li>
+                      
+                    </ul>
+
+                    {% if msg %}
+                    <h1>{{ msg }}</h1>
+                    {% endif %}
+
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h3 class="register-heading">Upload  Image</h3>
+                            <div class="row register-form">
+                                <div class="col-md-12">
+                                    <form method="post" enctype=multipart/form-data>
+                                        <div class="form-group">
+                                            <input type="file" name="file" class="form-control" placeholder="file...." value="" required=""/>
+                                        </div>
+                                       
+                                        <div class="form-group">
+                                            <input type="submit" name="submit" class="btnContactSubmit" value="upload" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                       
+
+                        <h1>Result:</h1>
+                       
+                  
+                        {% if extracted_text %}
+                          <p> Results: <b> {{ extracted_text }} </b></p>
+                       
+                        {% else %}
+                          The extracted text will be displayed here
+                        {% endif %}
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
